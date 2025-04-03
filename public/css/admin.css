@@ -58,10 +58,9 @@
 
 /* Цвета статусов */
 .status-badge.Резидент { background: #4a004a; color: #cc99cc; }
-.status-badge.Клубная\ карта { background: #330033; color: #d580ff; }
 .status-badge.Клиент-менеджер { background: #2d002d; color: #e6b3ff; }
 .status-badge.Организатор { background: #660066; color: #ffffff; }
-.status-badge.Член\ совета { background: #4d004d; color: #ffb3ff; }
+.status-badge.Член-совета { background: #4d004d; color: #ffb3ff; }
 .status-badge.Банитет { background: #990099; color: #ffffff; }
 .status-badge.Вице-президент { background: #b300b3; color: #ffffff; }
 .status-badge.Президент { background: #ff00ff; color: #000000; }

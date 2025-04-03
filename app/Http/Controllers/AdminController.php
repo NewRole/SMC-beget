@@ -23,7 +23,7 @@ class AdminController extends Controller
     public function updateUserStatus(Request $request, User $user)
     {
         $request->validate([
-            'userstatus' => 'required|in:Нет статуса,Резидент,Клубная карта,Клиент-менеджер,Организатор,Член совета,Банитет,Вице-президент,Президент',
+            'userstatus' => 'required|in:Нет статуса,Резидент,Клиент-менеджер,Организатор,Член-совета,Банитет,Вице-президент,Президент',
         ]);
 
         $user->update(['userstatus' => $request->userstatus]);

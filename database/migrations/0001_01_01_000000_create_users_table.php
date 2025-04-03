@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {
-            $table->string('userstatus')->default('новичок');
+            $table->string('userstatus')->default('Нет статуса');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

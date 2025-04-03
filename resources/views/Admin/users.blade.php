@@ -31,10 +31,9 @@
                             <select name="userstatus" onchange="this.form.submit()">
                                 <option value="Нет статуса" {{ $user->userstatus == 'Нет статуса' ? 'selected' : '' }}>Нет статуса</option>
                                 <option value="Резидент" {{ $user->userstatus == 'Резидент' ? 'selected' : '' }}>Резидент</option>
-{{--                                <option value="Клубная карта" {{ $user->userstatus == 'Клубная карта' ? 'selected' : '' }}>Клубная карта</option>--}}
                                 <option value="Клиент-менеджер" {{$user->userstatus == 'Клиент-менеджер' ? 'selected' : ''}}>Клиент-менеджер</option>
                                 <option value="Организатор"{{$user->userstatus == 'Организатор' ? 'selected' : ''}}>Организатор</option>
-                                <option value="Член совета"{{$user->userstatus == 'Член совета' ? 'selected' : ''}}>Член совета</option>
+                                <option value="Член-совета" {{$user->userstatus == 'Член-совета' ? 'selected' : ''}}>Член совета</option>
                                 <option value="Банитет"{{$user->userstatus == 'Банитет' ? 'selected' : ''}}>Банитет</option>
                                 <option value="Вице-президент"{{$user->userstatus == 'Вице-президент' ? 'selected' : ''}}>Вице-президент</option>
                                 <option value="Президент"{{$user->userstatus == 'Президент' ? 'selected' : ''}}>Президент</option>
