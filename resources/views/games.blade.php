@@ -11,7 +11,7 @@
             <div class="games-filter">
                 <select id="gameTypeFilter" class="filter-select">
                     <option value="all">Все игры</option>
-                    @foreach($games->collapse()->pluck('type')->unique() as $type)
+                    @foreach(collect($games)->collapse()->pluck('type')->unique() as $type)
                         <option value="{{ $type }}">{{ $type }}</option>
                     @endforeach
                 </select>
@@ -34,7 +34,13 @@
                                     <span class="game-type">{{ $game->type }}</span>
                                     <span class="game-date">
                                         {{ $game->date->format('d.m.Y') }}
-                                        {{ $game->time }} (осталось: {{ $game->date->diffForHumans() }})
+                                        {{ \Carbon\Carbon::parse($game->time)->format('H:i') }}
+
+                                        @if($game->full_date_time)
+                                            ({{ $game->full_date_time->diffForHumans() }})
+                                        @else
+                                            (Некорректная дата)
+                                        @endif
                                     </span>
                                 </div>
                                 <div class="game-body">

@@ -72,3 +72,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
     Route::post('/users/{user}/status', [AdminController::class, 'updateUserStatus'])->name('admin.users.updateStatus');
 });
 
+// Games CRUD
+Route::get('/games/create', [AdminController::class, 'createGame'])->name('admin.games.create');
+Route::post('/games', [AdminController::class, 'storeGame'])->name('admin.games.store');
+Route::get('/games/{game}/edit', [AdminController::class, 'editGame'])->name('admin.games.edit');
+Route::put('/games/{game}', [AdminController::class, 'updateGame'])->name('admin.games.update');
+Route::delete('/games/{game}', [AdminController::class, 'destroyGame'])->name('admin.games.destroy');

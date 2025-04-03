@@ -6,16 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Registration extends Model
 {
-    public function up() {
-        Schema::create('registrations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('game_id')->constrained()->onDelete('cascade');
-            $table->string('status')->default('active');
-            $table->timestamps();
-        });
-    }
-    // app/Models/Registration.php
     protected $fillable = [
         'user_id',
         'game_id',
@@ -27,7 +17,6 @@ class Registration extends Model
     }
 
     public function game() {
-        return $this->belongsTo(Game::class); // Если у вас есть модель Game
+        return $this->belongsTo(Game::class);
     }
-
 }

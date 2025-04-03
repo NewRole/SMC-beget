@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Game extends Model
 {
     protected $fillable = [
@@ -14,22 +14,24 @@ class Game extends Model
     ];
 
     protected $casts = [
-        'date' => 'date',
-        'time' => 'datetime:H:i',
+        'date' => 'date:Y-m-d',
+        'time' => 'datetime:H:i:s'
     ];
+
+    public function getFullDateTimeAttribute()
+    {
+        try {
+            return Carbon::createFromFormat(
+                'Y-m-d H:i:s',
+                $this->date->format('Y-m-d').' '.$this->time->format('H:i:s')
+            );
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
     public function registrations()
     {
         return $this->hasMany(Registration::class);
-    }
-
-// Registration.php
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function game()
-    {
-        return $this->belongsTo(Game::class);
     }
 }
