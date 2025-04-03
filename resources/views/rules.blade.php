@@ -61,7 +61,6 @@
                                 <li>3 фола → 10 секунд на выступление</li>
                                 <li>4 фола → удаление из игры</li>
                             </ul>
-                            </p>
                         </div>
                         <div class="rule-item">
                             <span class="rule-number">3</span>
