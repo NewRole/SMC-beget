@@ -68,11 +68,6 @@ Route::middleware(['auth', CheckAdmin::class])->prefix('admin')->group(function(
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
-    Route::get('/games', [AdminController::class, 'games'])->name('admin.games');
-    Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
-});
-
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function() {
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
     Route::post('/users/{user}/status', [AdminController::class, 'updateUserStatus'])->name('admin.users.updateStatus');
 });
