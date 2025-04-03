@@ -626,135 +626,153 @@
     }
 }
 .mafia-rules {
-    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
     background: #1a1a1a;
     color: #fff;
-}
+    overflow: hidden;
+    min-height: 100%;
+    }
 
 .section-title {
+    order: -1;
     text-align: center;
     color: #800080;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
+    margin-top: 1.5rem; /* Отступ от заголовка */
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    max-width: 90%;
 }
 
 .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .rule-card {
     background: #2d2d2d;
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 1.5rem;
+    border-radius: 12px;
     position: relative;
     transition: transform 0.3s;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .rule-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .rule-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 h2, h3, h4 {
     color: #cc99cc;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .skills-list {
-    list-style: none;
-    padding-left: 0;
+    padding-left: 1.2rem;
 }
 
 .skills-list li {
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid #444;
+    font-size: 0.95rem;
 }
 
 .role-breakdown {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .team {
     padding: 1rem;
-    border-radius: 10px;
-}
-
-.mafia {
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px solid #000000;
-}
-
-.civilians {
-    background: rgba(143, 0, 0, 0.1);
-    border: 1px solid #ff0000;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 
 .rules-list {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .rule-item {
     display: flex;
     align-items: start;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .rule-number {
-    background: #800080;
-    color: white;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
 }
 
 .foul-system {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
 }
 
 .tournament-system {
     text-align: center;
+    padding: 0 1rem;
 }
 
 .trophy-levels {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 
 .cup {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .rating-system {
-    background: rgba(128, 0, 128, 0.2);
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px dashed #800080;
+    padding: 0.8rem;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 2rem;
+    .rules-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
     }
 
     .rule-card {
-        padding: 1.5rem;
+        margin: 0 0.5rem;
+        padding: 1.2rem;
+    }
+
+    .trophy-levels {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .mafia-rules {
+        padding: 2rem 0.5rem;
+    }
+
+    .rule-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .rule-number {
+        margin-bottom: 0.5rem;
     }
 }

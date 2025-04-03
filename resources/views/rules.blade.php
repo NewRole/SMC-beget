@@ -4,8 +4,9 @@
 
 @section('content')
     <section class="mafia-rules">
+        <h1 class="section-title">Классическая спортивная мафия</h1>
         <div class="container">
-            <h1 class="section-title">Классическая спортивная мафия</h1>
+
 
             <div class="rules-grid">
                 <!-- Блок с общим описанием -->

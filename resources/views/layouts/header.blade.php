@@ -24,6 +24,9 @@
                 <img src="{{ asset('images/logo.jpg') }}" alt="Логотип">
             </a>
         </div>
+
+
+        <!-- Навигация -->
         <div class="row">
             <div class="nav-item">
                 <a class="nav-link" href="{{ route('games.index') }}">Игры</a>
@@ -66,8 +69,9 @@
                         </form>
                     </div>
                 </div>
-            @else
+            @else <div class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}">Регистрация</a>
+                  </div>
                 </div>
             @endauth
         </div>

@@ -63,5 +63,20 @@
     </div>
 </footer>
 <script src="{{ asset('javascript/courusel.js') }}"></script>
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+        document.querySelector('.burger-menu').classList.toggle('active');
+    }
+
+    // Закрытие меню при клике вне области
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.burger-menu') && !e.target.closest('#navMenu')) {
+            document.getElementById('navMenu').classList.remove('active');
+            document.querySelector('.burger-menu').classList.remove('active');
+        }
+    });
+</script>
 </body>
 </html>
