@@ -18,6 +18,7 @@
 </head>
 <body>
 <header>
+{{--контейнер--}}
     <div class="container">
         <div class="logo">
             <a href="/">
