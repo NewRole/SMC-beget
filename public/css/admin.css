@@ -1,0 +1,123 @@
+.admin-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #0a0a0a;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(128, 0, 128, 0.2);
+}
+
+.admin-container h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.users-table thead {
+    background: #800080;
+}
+
+.users-table th {
+    padding: 1.2rem;
+    color: #ffffff;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #4a004a;
+}
+
+.users-table td {
+    padding: 1rem;
+    color: #cccccc;
+    border-bottom: 1px solid #333333;
+}
+
+.users-table tr:hover {
+    background: rgba(128, 0, 128, 0.05);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Цвета статусов */
+.status-badge.Резидент { background: #4a004a; color: #cc99cc; }
+.status-badge.Клубная\ карта { background: #330033; color: #d580ff; }
+.status-badge.Клиент-менеджер { background: #2d002d; color: #e6b3ff; }
+.status-badge.Организатор { background: #660066; color: #ffffff; }
+.status-badge.Член\ совета { background: #4d004d; color: #ffb3ff; }
+.status-badge.Банитет { background: #990099; color: #ffffff; }
+.status-badge.Вице-президент { background: #b300b3; color: #ffffff; }
+.status-badge.Президент { background: #ff00ff; color: #000000; }
+
+select {
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #800080;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:hover {
+    background: #404040;
+    border-color: #a000a0;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(128, 0, 128, 0.3);
+}
+
+option {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .admin-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .users-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .users-table th,
+    .users-table td {
+        padding: 0.8rem;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-container h1 {
+        font-size: 2rem;
+    }
+
+    select {
+        width: 100%;
+        padding: 6px;
+    }
+}

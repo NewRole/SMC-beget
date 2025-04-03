@@ -1,0 +1,309 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+/* Убедимся, что контент страницы растягивается, но не перекрывает футер */
+body > main {
+    flex: 1;
+}
+body, section{
+    background: #252525;
+}
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+header .container {
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание */
+    justify-content: space-between; /* Элементы по краям */
+    padding: 0 20px; /* Отступы от краев экрана */
+}
+
+header .row {
+    display: flex;
+    width: 100%; /* Заставляем шапку занимать всю ширину */
+    justify-content: space-between; /* Левый и правый блоки по краям */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.nav-left, .nav-right {
+    display: flex; /* Горизонтальное выравнивание элементов */
+}
+
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-item {
+    text-align: center;
+    margin: 0 100px;
+}
+
+.nav-link {
+    color: #ededed;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.2em;
+}
+
+.nav-link:hover {
+    color: #b5b5b5;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    overflow: hidden;
+    border: 5px solid black;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+/* Стиль для выпадающего меню */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.nav-item .dropdown-menu {
+    display: none;  /* Скрыто по умолчанию */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 2000; /* Максимальный приоритет */
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;  /* Показываем меню при наведении */
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-align: left;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #800080;  /* При наведении меняем цвет */
+}
+/* Стили для выпадающего списка */
+.nav-item.dropdown .dropdown-menu {
+    background-color: #121212; /* Черный фон для меню */
+    border: none; /* Убираем границу */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Легкая тень */
+}
+
+.nav-item.dropdown .dropdown-item {
+    color: #fff; /* Белый цвет текста для элементов */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease; /* Плавный переход при наведении */
+}
+
+
+.nav-item.dropdown .dropdown-item:hover {
+    background-color: #800080; /* Фиолетовый фон при наведении */
+}
+
+.nav-item.dropdown .dropdown-item:focus {
+    background-color: #800080; /* Фиолетовый фон при фокусе */
+    color: #fff;
+}
+
+/* Основной контейнер */
+.main-container {
+    flex: 1; /* Этот блок растягивается, занимая все доступное пространство */
+
+}
+/* Стили футера */
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 0; /* Высота футера */
+    width: 100%;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.site-footer {
+    background: #0a0a0a;
+    color: #ffffff;
+    padding: 40px 0 20px;
+    border-top: 2px solid #800080;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.footer-section {
+    margin-bottom: 25px;
+}
+
+.footer-heading {
+    color: #800080;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 0.8rem;
+    color: #cccccc;
+}
+
+.footer-link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #800080;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.social-link svg {
+    width: 24px;
+    height: 24px;
+}
+
+.social-link.whatsapp:hover {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+}
+
+.social-link.telegram:hover {
+    background: rgba(0, 136, 204, 0.1);
+    color: #0088cc;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333333;
+    padding-top: 25px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.legal-links {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.legal-link {
+    color: #999999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+    color: #800080;
+}
+
+.copyright {
+    color: #666666;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .legal-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

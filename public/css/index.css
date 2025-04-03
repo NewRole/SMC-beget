@@ -1,0 +1,760 @@
+
+/* Serve Section */
+.serve {
+    background-color: #000;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.serve h2 {
+        color: white;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        position: relative;
+    text-align: left;          /* Выравнивание текста по левому краю */
+    display: block;            /* Занимает всю доступную ширину */
+    padding: 0 0 20px 20px;   /* Отступ слева для текста и снизу для линии */
+}
+.serve h2::after{
+        content: '';
+        position: absolute;
+    bottom: 15px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent 0%, #800080 50%, transparent 100%);
+    left: 40px;               /* Совмещаем с отступом текста */
+    transform: none;          /* Убираем центрирование */
+    width: 200px;            /* Фиксированная длина линии или 100% для всей ширины */
+}
+.serve::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100px;
+    background: linear-gradient(45deg, transparent, rgba(128, 0, 128, 0.1), transparent);
+    transform: rotate(-3deg);
+}
+/* Стиль карусели */
+.carousel {
+    width: 960px;
+    max-width: 960px; /* Ограничим размер */
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #121212;
+    border: 3px solid #800080;
+    border-radius: 15px;
+    padding: 90px;
+    text-align: center;
+    max-width: 550px;
+    flex: 0 0 auto;
+    margin: 0 20px;
+}
+
+.carousel-item img {
+    width: 240px;
+    height: 240px;
+    border-radius: 20%;
+    object-fit: cover;
+    border: 3px solid #800080;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+.carousel-item img {
+    border-radius: 20%;
+    object-fit: cover;
+    border: 3px solid #800080;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем паддинги */
+}
+.carousel-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+    color: #d63384;
+    text-shadow: 1px 1px 4px rgba(255, 0, 0, 0.6);
+}
+
+.carousel-item p {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 2rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+/* Video Banner */
+.video-banner {
+    position: relative;
+    height: 87vh;
+    overflow: hidden;
+    border-top: 2px solid #800080;
+    border-bottom: 2px solid #800080;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+#mainVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    filter: brightness(0.8);
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.banner-overlay h1 {
+    font-size: 3.5rem;
+    color: #d63384;
+    text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #800080, #d63384);
+    color: white!important;
+    padding: 15px 40px;
+    border: 2px solid #ff00ff;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+}
+/* About Section - Optimized */
+:root {
+    --accent-purple: #800080;
+    --accent-pink: #d63384;
+    --dark-bg: #000;
+    --card-bg: rgba(18, 18, 18, 0.95);
+    --text-light: #ffffff;
+    --x: 50%;
+    --y: 50%;
+}
+.about-section {
+    background: var(--dark-bg);
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before,
+.about-section::after {
+    content: '';
+    position: absolute;
+    height: 150px;
+    width: 150%;
+    background: linear-gradient(
+        45deg,
+        transparent 25%,
+        rgba(128, 0, 128, 0.1) 50%,
+        transparent 75%
+    );
+    rotate: -3deg;
+    animation: decor-flow 20s linear infinite;
+}
+
+.about-section::before {
+    top: -50px;
+    left: -50%;
+}
+
+.about-section::after {
+    bottom: -50px;
+    right: -50%;
+    animation-direction: reverse;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.about-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-purple);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        400px circle at var(--x) var(--y),
+        rgba(128, 0, 128, 0.15),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(128, 0, 128, 0.3);
+    border-color: var(--accent-pink);
+}
+
+.about-card:hover::before {
+    opacity: 1;
+}
+
+.about-card i {
+    font-size: 2.8rem;
+    color: var(--accent-pink);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    text-shadow: 0 0 15px rgba(214, 51, 132, 0.6);
+}
+
+.about-card:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.about-card h3 {
+    color: var(--accent-pink);
+    margin: 20px 0;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.about-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-pink) 50%, transparent 100%);
+}
+
+.about-card p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+@media (hover: none) {
+    .about-card::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .about-grid {
+        gap: 25px;
+    }
+
+    .about-card {
+        padding: 25px;
+    }
+}
+
+@keyframes decor-flow {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+/* Services Section - Optimized */
+.services-section {
+    background: var(--dark-bg);
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 200%;
+    height: 150px;
+    background: linear-gradient(
+        45deg,
+        transparent 25%,
+        rgba(128, 0, 128, 0.1) 50%,
+        transparent 75%
+    );
+    rotate: -3deg;
+    animation: decor-flow 25s linear infinite;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-purple);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        400px circle at var(--x) var(--y),
+        rgba(128, 0, 128, 0.15),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(128, 0, 128, 0.3);
+    border-color: var(--accent-pink);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card h3 {
+    color: var(--accent-pink);
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.service-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-pink) 50%, transparent 100%);
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.service-card li {
+    color: var(--text-light);
+    margin: 0;
+    padding: 12px 15px;
+    background: linear-gradient(90deg, rgba(128, 0, 128, 0.1) 0%, transparent 100%);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--accent-pink);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.service-card li:hover {
+    background: linear-gradient(90deg, rgba(128, 0, 128, 0.2) 0%, transparent 100%);
+    transform: translateX(8px);
+}
+
+.service-card li:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 20px;
+    }
+
+    .services-grid {
+        gap: 25px;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+
+    .service-card li {
+        padding: 10px 12px;
+    }
+}
+
+@media (hover: none) {
+    .service-card::before,
+    .service-card li::before {
+        display: none;
+    }
+}
+/* Signup Form */
+.signup-section {
+    background: #000;
+    padding: 50px 0;
+
+}
+
+.signup-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #121212;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #800080;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.form-group input,
+.form-group select {
+    background: #1a1a1a;
+    border: 1px solid #800080;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #d63384;
+    box-shadow: 0 0 10px rgba(214, 51, 132, 0.5);
+}
+
+.submit-button {
+    background: linear-gradient(45deg, #d63384, #800080);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .carousel {
+        width: 90%;
+    }
+
+    .about-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .banner-overlay h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        padding: 40px;
+        margin: 0 10px;
+    }
+
+    .video-banner {
+        height: 50vh;
+    }
+}
+/* Добавляем отступы между всеми основными секциями */
+.video-banner,
+.about-section,
+.games-section,
+.services-section,
+.signup-section {
+    margin: 50px 0;
+}
+
+/* Корректируем для мобильной версии */
+@media (max-width: 768px) {
+    .video-banner,
+    .about-section,
+    .games-section,
+    .services-section,
+    .signup-section {
+        margin: 30px 0;
+    }
+}
+
+/* Уточнения для конкретных секций */
+.about-section {
+    margin: 80px 0;
+    padding: 70px 0; /* Увеличиваем внутренний отступ */
+}
+
+.services-section {
+    margin: 60px 0;
+    padding: 60px 0;
+}
+
+.signup-section {
+    margin: 100px 0 50px;
+}
+
+/* Для карусели */
+.games-section {
+    margin: 80px 0;
+    padding: 40px 0;
+}
+
+/* Адаптивные корректировки */
+@media (max-width: 992px) {
+    .about-section {
+        margin: 60px 0;
+        padding: 50px 0;
+    }
+
+    .services-section {
+        margin: 50px 0;
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .signup-section {
+        margin: 60px 0 30px;
+    }
+
+    .games-section {
+        margin: 50px 0;
+    }
+}
+.mafia-rules {
+    padding: 4rem 0;
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    color: #800080;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rule-card {
+    background: #2d2d2d;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.rule-card:hover {
+    transform: translateY(-5px);
+}
+
+.rule-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+h2, h3, h4 {
+    color: #cc99cc;
+    margin-bottom: 1rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #444;
+}
+
+.role-breakdown {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.team {
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.mafia {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #000000;
+}
+
+.civilians {
+    background: rgba(143, 0, 0, 0.1);
+    border: 1px solid #ff0000;
+}
+
+.rules-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.rule-item {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+
+.rule-number {
+    background: #800080;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.foul-system {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.tournament-system {
+    text-align: center;
+}
+
+.trophy-levels {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.cup {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.rating-system {
+    background: rgba(128, 0, 128, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px dashed #800080;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .rule-card {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,44 @@
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #121212; /* Черный фон */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); /* Красная тень */
+    text-align: center;
+}
+.auth-container h2 {
+    color: white;
+}
+.auth-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #800080; /* Фиолетовая рамка */
+    border-radius: 5px;
+    background: #333; /* Темный фон для полей ввода */
+    color: #fff; /* Белый текст в полях */
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background: #800080; /* Фиолетовый фон */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-container button:hover {
+    background: #d63384; /* Ярко-розовый при наведении */
+}
+
+
+
+.auth-container h3,
+.auth-container p {
+    color: white; /* Белый цвет для текста */
+    font-size: 1rem;
+    margin-top: 10px;
+}
