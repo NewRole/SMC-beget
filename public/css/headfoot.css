@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: "Neucha", serif
 }
 /* Убедимся, что контент страницы растягивается, но не перекрывает футер */
 body > main {
@@ -20,7 +21,7 @@ header {
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: center;;
 }
 
 header .container {
@@ -222,6 +223,7 @@ header .row {
         padding: 15px 20px;
         border-bottom: 1px solid #333;
         margin: 0 !important;
+        font-size: 12px;
     }
 
     .dropdown-menu {

@@ -45,11 +45,27 @@
                                 </div>
                                 <div class="game-body">
                                     <p>📍 {{ $game->location }}</p>
+
                                     @if($category !== 'past')
+                                        @php
+                                            $available = max(0, $game->max_players - $game->registrations_count);
+                                            $isRegistered = auth()->check() && auth()->user()->registrations->contains('game_id', $game->id);
+
+                                            if (!auth()->check()) {
+                                                $buttonText = 'Войдите для записи';
+                                                $disabled = true;
+                                            } else {
+                                                $buttonText = $isRegistered
+                                                    ? 'Записан'
+                                                    : ($available > 0 ? "Записаться ($available)" : 'Мест нет');
+                                                $disabled = $isRegistered || ($available <= 0);
+                                            }
+                                        @endphp
+
                                         <button class="signup-button"
                                                 data-game-id="{{ $game->id }}"
-                                            {{ auth()->check() && auth()->user()->registrations->contains('game_id', $game->id) ? 'disabled' : '' }}>
-                                            {{ auth()->check() && auth()->user()->registrations->contains('game_id', $game->id) ? 'Записан' : 'Записаться' }}
+                                            {{ $disabled ? 'disabled' : '' }}>
+                                            {{ $buttonText }}
                                         </button>
                                     @else
                                         <div class="game-archive-label">Игра завершена</div>

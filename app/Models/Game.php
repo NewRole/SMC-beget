@@ -10,7 +10,9 @@ class Game extends Model
         'date',
         'time',
         'type',
-        'location'
+        'location',
+        'max_players'
+
     ];
 
     protected $casts = [

@@ -14,6 +14,7 @@ class GameController extends Controller
         $games = [
             'today' => Game::whereDate('date', $now->toDateString())
                 ->whereTime('time', '>=', $now->toTimeString())
+                ->withCount('registrations')
                 ->orderBy('date')
                 ->orderBy('time')
                 ->get(),
@@ -25,6 +26,7 @@ class GameController extends Controller
                             ->whereTime('time', '>', $now->toTimeString());
                     });
             })
+                ->withCount('registrations')
                 ->orderBy('date')
                 ->orderBy('time')
                 ->get(),
@@ -36,6 +38,7 @@ class GameController extends Controller
                             ->whereTime('time', '<', $now->toTimeString());
                     });
             })
+                ->withCount('registrations')
                 ->orderBy('date', 'desc')
                 ->orderBy('time', 'desc')
                 ->get()

@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+// В файле миграции
     public function up() {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
@@ -16,8 +17,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('location');
-            $table->enum('status', ['today', 'upcoming', 'past']);
-            $table->timestamps();
+            $table->timestamps(); // Убрали поле status
         });
     }
 

@@ -22,10 +22,11 @@ class AdminController extends Controller
     public function storeGame(Request $request)
     {
         $validated = $request->validate([
-            'type' => 'required|string|max:255',
-            'date' => 'required|date',
-            'time' => 'required|string',
-            'location' => 'required|string|max:255',
+            'type' => 'required|in:мафия,бункер',
+            'date' => 'required|date|after_or_equal:today',
+            'time' => 'required|in:19:30,20:00,20:30,21:00,21:30,22:00,22:30,23:00',
+            'location' => 'required|in:Центральный зал,Дальний зал,ДнД зал',
+            'max_players' => 'required|integer|min:1'
         ]);
 
         Game::create($validated);
@@ -41,10 +42,11 @@ class AdminController extends Controller
     public function updateGame(Request $request, Game $game)
     {
         $validated = $request->validate([
-            'type' => 'required|string|max:255',
-            'date' => 'required|date',
-            'time' => 'required|string',
-            'location' => 'required|string|max:255',
+            'type' => 'required|in:мафия,бункер',
+            'date' => 'required|date|after_or_equal:today',
+            'time' => 'required|in:19:30,20:00,20:30,21:00,21:30,22:00,22:30,23:00',
+            'location' => 'required|in:Центральный зал,Дальний зал,ДнД зал',
+            'max_players' => 'required|integer|min:1'
         ]);
 
         $game->update($validated);

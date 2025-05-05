@@ -12,8 +12,14 @@ class RegistrationController extends Controller
     {
         try {
             $request->validate(['game_id' => 'required|exists:games,id']);
-            $game = Game::findOrFail($request->game_id);
+            $game = Game::withCount('registrations')->findOrFail($request->game_id);
 
+            // Изменить проверку
+            if ($game->registrations_count >= $game->max_players) {
+                return response()->json([
+                    'error' => 'Все места заняты'
+                ], 422);
+            }
             // Проверяем, что игра не началась
             $gameDateTime = $game->date->setTimeFromTimeString($game->time);
             if ($gameDateTime <= now()) {
