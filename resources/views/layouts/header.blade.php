@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('sass/app.scss') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/headfoot.css') }}">
@@ -17,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('css/profile.css')}}">
     <link rel="stylesheet" href="{{asset('css/games.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <link rel="stylesheet" href="{{asset('css/rating.css')}}">
     <title>@yield("title")</title>
 </head>
 <body>
@@ -45,7 +48,7 @@
                 <a class="nav-link" href="#">Услуги</a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#">Магазин</a>
+                <a class="nav-link" href="{{route('shop')}}">Магазин</a>
             </div>
 
             @auth

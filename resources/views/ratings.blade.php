@@ -1,201 +1,202 @@
 @extends("layouts.layout")
 
 @section("title", "Smile Mafia Club")
-
-@section("content")
-    <div class="container">
-        @if($error)
-            <div class="alert alert-danger">
-                {{ $error }}
-                <p>Попробуйте обновить страницу позже</p>
-                <button onclick="window.location.reload()" class="btn-retry">
-                    Попробовать снова
-                </button>
-            </div>
-        @else
-            <h2>{{ $caption }}</h2>
-            <p class="text-muted">Последнее обновление: {{ $updateTime }}</p>
-            <p class="text-info">Количество игр за период: {{ $count }}</p>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
-                    <tr>
-                        <!-- Основная информация -->
-                        <th>ID</th>
-                        <th>Никнейм</th>
-                        <th>Игр сыграно</th>
-                        <th>Винрейт</th>
-
-                        <!-- Статистика побед -->
-                        <th>Побед всего</th>
-                        <th>Побед Шериф</th>
-                        <th>Побед Мирный</th>
-                        <th>Побед Дон</th>
-                        <th>Побед Мафия</th>
-
-                        <!-- Статистика поражений -->
-                        <th>Поражений всего</th>
-                        <th>Пораж. Шериф</th>
-                        <th>Пораж. Мирный</th>
-                        <th>Пораж. Дон</th>
-                        <th>Пораж. Мафия</th>
-
-                        <!-- Баллы и коэффициенты -->
-                        <th>СрДБ</th>
-                        <th>СрБ</th>
-                        <th>ОМИ</th>
-                        <th>КМИ</th>
-                        <th>МЛХ</th>
-                        <th>ККИ</th>
-                        <th>САФ</th>
-                        <th>ТКМ</th>
-
-                        <!-- Дополнительные показатели -->
-                        <th>Штрафы</th>
-                        <th>Компенсации</th>
-                        <th>Ущерб</th>
-                        <th>Фолы</th>
-                        <th>СмДБ</th>
-                        <th>ДШ</th>
-                        <th>КЛХ</th>
-
-                        <!-- Дополнительные баллы -->
-                        <th>ДБ мирный</th>
-                        <th>ДБ мафия</th>
-                        <th>ДБ шериф</th>
-                        <th>ДБ дон</th>
-
-                        <!-- Лучшие ходы -->
-                        <th>2 мафии</th>
-                        <th>3 мафии</th>
-                        <th>3 мирных</th>
-
-                        <!-- Слоты -->
-                        <th>1 слот</th>
-                        <th>4 слот</th>
-                        <th>Первые убийства</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($players as $player)
-                        <tr>
-                            <!-- Основная информация -->
-                            <td>{{ $player['UserID'] }}</td>
-                            <td>{{ $player['Nick'] }}</td>
-                            <td class="text-center">{{ $player['KI'] }}</td>
-                            <td class="text-success">{{ $player['VR'] }}%</td>
-
-                            <!-- Победы -->
-                            <td class="text-success">{{ $player['Kpb'] }}</td>
-                            <td>{{ $player['WinSheriff'] }}</td>
-                            <td>{{ $player['WinRed'] }}</td>
-                            <td>{{ $player['WinDon'] }}</td>
-                            <td>{{ $player['WinBlack'] }}</td>
-
-                            <!-- Поражения -->
-                            <td class="text-danger">{{ $player['Kpr'] }}</td>
-                            <td>{{ $player['LosingSheriff'] }}</td>
-                            <td>{{ $player['LosingRed'] }}</td>
-                            <td>{{ $player['LosingDon'] }}</td>
-                            <td>{{ $player['LosingBlack'] }}</td>
-
-                            <!-- Коэффициенты -->
-                            <td>{{ $player['SrDB'] }}</td>
-                            <td>{{ $player['SrB'] }}</td>
-                            <td>{{ $player['OMI'] }}</td>
-                            <td>{{ $player['KMI'] }}</td>
-                            <td>{{ $player['MLH'] }}</td>
-                            <td>{{ $player['KKI'] }}</td>
-                            <td>{{ $player['SAF'] }}</td>
-                            <td>{{ $player['TKM'] }}</td>
-
-                            <!-- Штрафы и ущерб -->
-                            <td class="text-danger">{{ $player['SH'] }}</td>
-                            <td>{{ $player['K'] }}</td>
-                            <td>{{ $player['U'] }}</td>
-                            <td>{{ $player['F'] }}</td>
-                            <td>{{ $player['SmDB'] }}</td>
-                            <td>{{ $player['DB_SH'] }}</td>
-                            <td>{{ $player['KLH'] }}</td>
-
-                            <!-- Доп. баллы -->
-                            <td>{{ $player['EPmr'] }}</td>
-                            <td>{{ $player['EPmf'] }}</td>
-                            <td>{{ $player['EPsh'] }}</td>
-                            <td>{{ $player['EPd'] }}</td>
-
-                            <!-- Лучшие ходы -->
-                            <td>{{ $player['bm_2black'] }}</td>
-                            <td>{{ $player['bm_3black'] }}</td>
-                            <td>{{ $player['bm_3red'] }}</td>
-
-                            <!-- Слоты -->
-                            <td>{{ $player['p1'] }}</td>
-                            <td>{{ $player['p4'] }}</td>
-                            <td>{{ $player['fs'] }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        @endif
-    </div>
-@endsection
-
-@section('styles')
+@push('styles')
     <style>
-        .table-responsive {
-            overflow-x: auto;
-            max-width: 100%;
+
+
+        /* Вкладки */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+            padding-bottom: 10px;
+        }
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+        .nav-tabs .nav-item {
+            margin-bottom: 1px;
+        }
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-radius: 0.25em;
+            padding: 0.5rem 1rem;
+
+        }
+        .nav-tabs .nav-link:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
         }
 
+        /* Табы */
+        .tab-content > .tab-pane {
+            display: none;
+        }
+        .tab-content > .active {
+            display: block;
+        }
+        .fade {
+            transition: opacity 0.15s linear;
+        }
+        .fade:not(.show) {
+            opacity: 0;
+        }
+
+        /* Таблицы */
         .table {
-            min-width: 1500px;
-            font-size: 0.9rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            border-collapse: collapse;
         }
-
-        th {
-            white-space: nowrap;
-            background-color: #2d3748;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1;
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
         }
-
-        td {
-            vertical-align: middle;
-            text-align: center;
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
         }
-
-        .text-success {
-            font-weight: bold;
-            color: #28a745!important;
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
         }
+        .table-hover tbody tr:hover {
 
-        .text-danger {
-            font-weight: bold;
-            color: #dc3545!important;
+            background-color: rgba(0, 0, 0, 0.075);
         }
-
-        .text-center {
-            text-align: center!important;
+        .table-dark {
+            color: #fff;
+            background-color: #343a40;
         }
-
-        .text-muted {
-            color: #6c757d!important;
-            font-size: 0.9rem;
+        .table-dark th,
+        .table-dark td,
+        .table-dark thead th {
+            border-color: #000000;
         }
-
-        .btn-retry {
-            background: #007bff;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 1rem;
+        .table-responsive {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Кастомная реализация табов
+            const tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    // Скрыть все табы
+                    document.querySelectorAll('.tab-pane').forEach(pane => {
+                        pane.classList.remove('show', 'active');
+                    });
+
+                    // Деактивировать все ссылки
+                    document.querySelectorAll('.nav-link').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+
+                    // Показать выбранный таб
+                    const target = document.querySelector(this.getAttribute('data-bs-target'));
+                    target.classList.add('show', 'active');
+
+                    // Активировать текущую ссылку
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+@endpush
+@section("content")
+
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Рейтинг игроков Smile Mafia Club</h1>
+            @if($lastUpdate)
+                <div class="text-muted">
+                    Обновлено: {{ $lastUpdate->format('d.m.Y H:i') }}
+                </div>
+            @endif
+        </div>
+
+        <!-- Вкладки с названиями таблиц -->
+        <div class="tabs-container mb-4">
+            <div class="tabs-wrapper">
+                <ul class="nav nav-tabs" id="ratingTabs" role="tablist">
+                    @foreach($tables as $tableName => $tableData)
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link {{ $loop->first ? 'active' : '' }}"
+                                    id="tab-{{ $loop->index }}"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#content-{{ $loop->index }}"
+                                    type="button"
+                                    role="tab">
+                                {{ $tableName }}
+                            </button>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
+        <!-- Содержимое вкладок -->
+        <div class="tab-content" id="ratingTabsContent">
+            @foreach($tables as $tableName => $tableData)
+                <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                     id="content-{{ $loop->index }}"
+                     role="tabpanel"
+                     aria-labelledby="tab-{{ $loop->index }}">
+
+                    <div class="table-header mb-3">
+                        <h3 class="text-center" style="color: #d63384; text-shadow: 0 0 10px rgba(214,51,132,0.5);">
+                            {{ $tableName }}
+                        </h3>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                            <tr>
+                                <th>Место</th>
+                                <th>Игрок</th>
+                                <th>ТКМ</th>
+                                <th>Игры</th>
+                                <th>Победы</th>
+                                <th>Поражения</th>
+                                <th>Винрейт</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($tableData as $player)
+                                <tr>
+                                    <td>{{ $player['place'] }}</td>
+                                    <td>{{ $player['name'] }}</td>
+                                    <td>{{ number_format($player['tkm'], 2) }}</td>
+                                    <td>{{ $player['games_played'] }}</td>
+                                    <td>{{ $player['wins'] }}</td>
+                                    <td>{{ $player['losses'] }}</td>
+                                    <td>{{ number_format($player['win_rate'], 2) }}%</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
 @endsection

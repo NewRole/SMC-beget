@@ -5,9 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\PlayerController;
 
-Route::get('/ratings', [ApiController::class, 'getRatings'])->name('ratings');
 Route::get('/', function () {
     return view('index');
 });
@@ -56,7 +55,9 @@ Route::middleware('auth')->group(function() {
 });
 // Игры
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
-
+use App\Http\Controllers\ShopController;
+// Магазин
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
 // Админка
 use App\Http\Controllers\AdminController;
@@ -78,3 +79,8 @@ Route::post('/games', [AdminController::class, 'storeGame'])->name('admin.games.
 Route::get('/games/{game}/edit', [AdminController::class, 'editGame'])->name('admin.games.edit');
 Route::put('/games/{game}', [AdminController::class, 'updateGame'])->name('admin.games.update');
 Route::delete('/games/{game}', [AdminController::class, 'destroyGame'])->name('admin.games.destroy');
+
+
+
+Route::get('/ratings', [PlayerController::class, 'index'])->name('ratings');
+Route::post('/import', [PlayerController::class, 'import'])->name('import');

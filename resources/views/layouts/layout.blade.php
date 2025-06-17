@@ -2,5 +2,5 @@
 
 @yield('content')
 @stack('scripts')
-
+@stack('styles')
 @include("layouts.footer")

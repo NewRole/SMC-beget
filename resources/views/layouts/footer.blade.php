@@ -6,7 +6,7 @@
             <div class="footer-section">
                 <h4 class="footer-heading">Контакты</h4>
                 <ul class="footer-list">
-                    <li><a href="tel:+79635658954" class="footer-link">+7 (963) 565‒89‒53</a></li>
+                    <li><a href="tel:+79635658953" class="footer-link">+7 (963) 565‒89‒53</a></li>
                     <li>Хабаровск, ул. Карла-Маркса 96а</li>
                     <li><a href="mailto:info@smilemafia.ru" class="footer-link">info@smilemafia.ru</a></li>
                 </ul>
@@ -24,9 +24,9 @@
             <div class="footer-section">
                 <h4 class="footer-heading">Компания</h4>
                 <ul class="footer-list">
-                    <li>ООО "Smile Mafia Club"</li>
-                    <li>ИНН 2723256890</li>
-                    <li>ОГРН 1202700033719</li>
+                    <li>ООО "Центр Невербальной Семиотики"</li>
+                    <li>ИНН 2700020581</li>
+                    <li>ОГРН 1232700017428</li>
                 </ul>
             </div>
 
