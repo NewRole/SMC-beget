@@ -5,7 +5,6 @@
     <style>
 
 
-        /* Вкладки */
         .nav {
             display: flex;
             flex-wrap: wrap;
