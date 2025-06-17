@@ -1,0 +1,196 @@
+/* Rating Page Styles - Centered Version */
+.container.py-4 {
+    background-color: #000;
+    color: #fff;
+    padding: 40px ;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container.py-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100px;
+    background: linear-gradient(45deg, transparent, rgba(128, 0, 128, 0.1), transparent);
+    transform: rotate(-3deg);
+}
+
+.d-flex.justify-content-between.align-items-center.mb-4 {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #800080;
+    width: 100%;
+}
+
+h1 {
+    color: #d63384;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 4px rgba(255, 0, 0, 0.6);
+    margin: 0;
+    text-align: center; /* Центрируем заголовок */
+    width: 100%;
+}
+
+.text-muted {
+    color: #aaa !important;
+    font-size: 0.9rem;
+    text-align: center; /* Центрируем дату обновления */
+    width: 100%;
+}
+
+.table-responsive {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.3);
+    width: auto; /* Убираем фиксированную ширину */
+    max-width: 1000px; /* Максимальная ширина таблицы */
+    margin: 0 auto; /* Центрируем таблицу */
+}
+
+.table {
+    width: auto; /* Убираем 100% ширину */
+    background-color: #121212;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto; /* Центрируем таблицу */
+}
+
+.table-dark {
+    background: linear-gradient(45deg, #800080, #d63384);
+    color: white;
+}
+
+.table-dark th {
+    border: none;
+    padding: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-align: center; /* Центрируем заголовки столбцов */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(128, 0, 128, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(128, 0, 128, 0.15);
+    transform: scale(1.005);
+    box-shadow: 0 0 15px rgba(128, 0, 128, 0.2);
+}
+
+.table td {
+    padding: 12px 15px;
+    border-top: 1px solid rgba(128, 0, 128, 0.2);
+    vertical-align: middle;
+    text-align: center; /* Центрируем содержимое ячеек */
+}
+/* Excel-like Tabs Styles */
+.tabs-container {
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #800080;
+}
+
+.tabs-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: #800080 #000;
+}
+
+.tabs-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.tabs-wrapper::-webkit-scrollbar-track {
+    background: #000;
+}
+
+.tabs-wrapper::-webkit-scrollbar-thumb {
+    background-color: #800080;
+    border-radius: 10px;
+}
+.nav-link {
+    background: black;
+    border-color: #800080;
+}
+.nav-link:hover {
+    color: #d63384;
+}
+
+.nav-link.active {
+    background-color: #000;
+    color: #d63384;
+    border-color: #d601d6;
+    border-bottom: 1px solid #000;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(128, 0, 128, 0.3);
+
+}
+
+.tab-content {
+    border: 1px solid #800080;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    background-color: #121212;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.2);
+}
+
+.tab-pane {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+
+    .tabs-container {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .tab-content {
+        padding: 15px;
+    }
+}
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column;
+        align-items: center; /* Центрируем на мобильных */
+        gap: 15px;
+    }
+
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table {
+        width: max-content; /* Для горизонтального скролла на мобильных */
+    }
+}
