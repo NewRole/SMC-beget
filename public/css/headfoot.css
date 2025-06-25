@@ -90,60 +90,48 @@ header .row {
 }
 /* Стиль для выпадающего меню */
 .nav-item.dropdown {
-    position: static; /* Изменено для мобильной адаптации */
+    position: relative; /* Важно для позиционирования меню */
+    display: inline-block; /* Чтобы меню не растягивалось на всю ширину */
+
 }
 
-.nav-item .dropdown-menu {
-    display: none;  /* Скрыто по умолчанию */
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
-    z-index: 2000; /* Максимальный приоритет */
-    transform: translateX(-50%); /* Центрирование меню */
-}
-
-.nav-item:hover .dropdown-menu {
-    display: block;  /* Показываем меню при наведении */
-}
-
-.dropdown-item {
-    padding: 10px;
-    text-align: left;
-    color: #333;
-    text-decoration: none;
+/* Показываем меню при фокусе (клике) на родительский элемент */
+.nav-item.dropdown:focus-within .dropdown-menu {
     display: block;
 }
 
-.dropdown-item:hover {
-    background-color: #f1f1f1;
-    color: #800080;  /* При наведении меняем цвет */
-}
-/* Стили для выпадающего списка */
-.nav-item.dropdown .dropdown-menu {
-    background-color: #121212; /* Черный фон для меню */
-    border: none; /* Убираем границу */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Легкая тень */
+/* Меню скрыто по умолчанию */
+.nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #121212;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    z-index: 2000;
+    transform: translateX(-50%);
+
 }
 
-.nav-item.dropdown .dropdown-item {
-    color: #fff; /* Белый цвет текста для элементов */
+/* Стили для пунктов меню */
+.dropdown-item {
     padding: 10px 20px;
-    transition: background-color 0.3s ease; /* Плавный переход при наведении */
-}
-
-
-.nav-item.dropdown .dropdown-item:hover {
-    background-color: #800080; /* Фиолетовый фон при наведении */
-}
-
-.nav-item.dropdown .dropdown-item:focus {
-    background-color: #800080; /* Фиолетовый фон при фокусе */
     color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #800080;
+    color: #fff;
+    outline: none; /* Убираем стандартный outline */
 }
 /* Медиа-запросы для адаптации */
 @media (max-width: 1200px) {
